@@ -1,0 +1,27 @@
+#acak_kata_box {
+	margin: auto;
+	margin-top: 80px;
+	width: 50%;	
+}
+
+#permuted_kata, #judul, #point, #kata_asli, #countdown {
+	text-align: center;
+}
+
+#input_kata {
+	width: 60%;
+	display: block;
+	margin: auto;
+}
+
+#button_tebak {
+	display: block;
+	margin: auto;	
+	width: 30%;
+	margin-top: 10px;
+}
+
+#result_box {
+	margin-top: 30px;
+	text-align: center;
+}

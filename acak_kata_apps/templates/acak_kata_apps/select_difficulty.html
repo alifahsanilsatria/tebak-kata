@@ -1,0 +1,18 @@
+{% extends "acak_kata_apps/base.html" %}
+{% load static %}
+{% block css_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/select_difficulty.css' %}">
+{% endblock %}
+
+{% block body_block %}
+	<div id="select_difficulty_box">
+		<h2>Pilih tingkat <keygen></keygen>sulitan</h2>
+		<form method="post" action="{% url 'difficulty' %}">
+			{% csrf_token %}
+			<input type="radio" name="difficulty_option" value="easy"> Easy
+			<input type="radio" name="difficulty_option" value="medium"> Medium
+			<input type="radio" name="difficulty_option" value="hard"> Hard <br>
+			<input type="submit" value="PILIH" id="button_pilih">
+		</form>
+	</div>
+{% endblock %}

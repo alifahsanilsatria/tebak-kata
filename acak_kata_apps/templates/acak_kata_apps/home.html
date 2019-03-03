@@ -1,0 +1,14 @@
+{% extends "acak_kata_apps/base.html" %}
+{% load static %}
+{% block css_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block body_block %}
+	<div id="welcome_box">
+		<h1>Selamat datang di permainan tebak kata</h1>
+		<form method="get" action="{% url 'difficulty' %}">
+			<input type="submit" value="MULAI" id="button_mulai">
+		</form>
+	</div>
+{% endblock%}
