@@ -18,7 +18,7 @@ def get_kata_random():
 		dict_kata = {"hasil_permutasi_kata" : hasil_permutasi_kata, "kata_asli" : kata_random_terpilih, "id_kata" : id_kata_terpilih}
 		return dict_kata
 
-class IndexView(View):
+class GameView(View):
 	def get(self, request, selected_difficulty):
 		dict_kata = get_kata_random()
 		if selected_difficulty == "easy":
@@ -30,7 +30,7 @@ class IndexView(View):
 
 		dict_kata['difficulty'] = difficulty
 		dict_kata['selected_difficulty'] = selected_difficulty
-		return render(request,'acak_kata_apps/index.html',dict_kata)
+		return render(request,'acak_kata_apps/game.html',dict_kata)
 
 	def post(self,request,selected_difficulty):
 		tebakan = request.POST['tebakan']
@@ -58,11 +58,11 @@ class IndexView(View):
 
 	@csrf_exempt
 	def dispatch(self, request, *args, **kwargs):
-		return super(IndexView, self).dispatch(request, *args, **kwargs)
+		return super(GameView, self).dispatch(request, *args, **kwargs)
 
-class HomeView(View):
+class IndexView(View):
 	def get(self, request):
-		return render(request,'acak_kata_apps/home.html')
+		return render(request,'acak_kata_apps/index.html')
 
 class SelectDifficultyView(View):
 	def get(self, request):

@@ -19,7 +19,7 @@ from acak_kata_apps import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.HomeView.as_view(), name='home'),
-    path('game/<str:selected_difficulty>',views.IndexView.as_view(), name='game'),
+    path('',views.IndexView.as_view(), name='index'),
+    path('game/<str:selected_difficulty>',views.GameView.as_view(), name='game'),
     path('select-difficulty/',views.SelectDifficultyView.as_view(), name='difficulty')
 ]
