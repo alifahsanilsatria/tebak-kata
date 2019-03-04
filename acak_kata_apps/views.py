@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 from acak_kata_apps.DifficultyStrategy import Difficulty, Easy, Medium, Hard
 
+#mendapatkan kata secara random, lalu permutasi urutan huruf secara random
 def get_kata_random():
 	# <view logic>
 		id_kata_terpilih = random.randint(1,28526)
@@ -18,6 +19,9 @@ def get_kata_random():
 		dict_kata = {"hasil_permutasi_kata" : hasil_permutasi_kata, "kata_asli" : kata_random_terpilih, "id_kata" : id_kata_terpilih}
 		return dict_kata
 
+'''method get dipanggil ketika tepat selesai memilih diffilcuty atau ingin memulai game lagi
+   setelah game berakhir. method post dipanggil untuk mencocokkan tebakan dgn kata yang benar
+   dan juga utk menampilkan kata selanjutnya ketika jawaban benar atau kesempatan sudah habis '''
 class GameView(View):
 	def get(self, request, selected_difficulty):
 		dict_kata = get_kata_random()

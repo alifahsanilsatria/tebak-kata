@@ -1,9 +1,9 @@
 $(document).ready(function(){
-	var countdown = $("#choosen_countdown").val();
-	var point = 0;
-	var kesempatan_menjawab = 3;
+	var countdown = $("#choosen_countdown").val(); //countdown waktu tersisa
+	var point = 0; //skor
+	var kesempatan_menjawab = 3; //sisa kesempatan menjawab tiap soal
 	$("#countdown").text(countdown); 	
-	setInterval(function(){
+	setInterval(function(){ //menghitung mundur sampai detik ke-0, lalu game berakhir
 		countdown--;
 		$("#countdown").text(countdown);
 		if(countdown == 0) {
@@ -12,7 +12,10 @@ $(document).ready(function(){
 		}
 	}, 1000);
 
-	$("#button_tebak").click(function(){
+	//mencocokkan kata yang diisi dengan kata yg didatabase berdasarkan id kata
+	//yang inputnya hidden di game.html, lalu output benar atau salah dikembalikan
+	//secara asynchronous
+	$("#button_tebak").click(function(){ 
 		var tebakan = $("#input_kata").val()
 		var id_kata = $("#id_kata").val()
 		var url = '/game/' + $("#selected_difficulty").val()
@@ -47,6 +50,7 @@ $(document).ready(function(){
 		});
 	});	
 
+	//menampilkan halaman yang berisi kata berikutnya
 	function kata_berikutnya(response) {
 		$("#point").text("Point anda : " + point)
 		$("#permuted_kata").text(response.hasil_permutasi_kata)

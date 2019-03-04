@@ -9,6 +9,7 @@ django.setup()
 
 from acak_kata_apps.models import Kata
 
+#file ini berfungsi untuk menambahkan data kata ke database
 def populate():
 	file_kata = open("kata-indonesia.txt","r")
 	daftar_kata = file_kata.read()
