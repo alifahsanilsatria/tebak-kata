@@ -6,7 +6,7 @@
 
 {% block body_block %}
 	<div id="select_difficulty_box">
-		<h2>Pilih tingkat <keygen></keygen>sulitan</h2>
+		<h2>Pilih tingkat kesulitan</h2>
 		<form method="post" action="{% url 'difficulty' %}">
 			{% csrf_token %}
 			<input type="radio" name="difficulty_option" value="easy"> Easy
